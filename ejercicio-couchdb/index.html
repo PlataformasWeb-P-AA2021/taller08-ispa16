@@ -27,13 +27,11 @@
             }).then(function(data) {
               var cadena = '';
               var lista = [];
-              for(var i=0; i<data.rows.length; i++){
-                  if( data.rows[i].doc.Numero ) {
-                    var cadena = data.rows[i].doc.FirstName + " " + 
-                      data.rows[i].doc.LastName;
+              for(var i=0; i<data.rows[0].doc.docs.length; i++){     
+                    var cadena = data.rows[0].doc.docs[i].FirstName + " " + 
+                    data.rows[0].doc.docs[i].LastName;
                     console.log(cadena);
                     lista.push(cadena);
-                  }
               }
               $( "#tags" ).autocomplete({
                   source: lista
